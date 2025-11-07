@@ -94,7 +94,7 @@ typedef enum {
 // test for that condition. entry_shift is 8 for tables subscripted by a full
 // byte value and 6 for space-optimized tables subscripted by only six
 // significant bits in UTF-8 continuation bytes.
-typedef struct {
+struct UTF8StateMachineObj {
   const uint32 state0;
   const uint32 state0_size;
   const uint32 total_size;
@@ -107,10 +107,10 @@ typedef struct {
   const RemapEntry* remap_base;
   const uint8* remap_string;
   const uint8* fast_state;
-} UTF8StateMachineObj;
+} ;
 
 // Near-duplicate declaration for tables with two-byte entries
-typedef struct {
+struct UTF8StateMachineObj_2 {
   const uint32 state0;
   const uint32 state0_size;
   const uint32 total_size;
@@ -123,7 +123,7 @@ typedef struct {
   const RemapEntry* remap_base;
   const uint8* remap_string;
   const uint8* fast_state;
-} UTF8StateMachineObj_2;
+} ;
 
 
 typedef UTF8StateMachineObj UTF8PropObj;

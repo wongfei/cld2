@@ -50,18 +50,18 @@ static const int kCLDPriorLanguageWeight = 8;   // 10000x more likely
 // TLD lookup:   tld OneLangProb pairs
 
 
-typedef struct {
+struct LangTagLookup {
   const char* const langtag;    // Lowercased, hyphen only lookup key
   const char* const langcode;   // Canonical language codes; two if ambiguous
   OneCLDLangPrior onelangprior1;
   OneCLDLangPrior onelangprior2;
-} LangTagLookup;
+} ;
 
-typedef struct {
+struct TLDLookup {
   const char* const tld;        // Lowercased, hyphen only lookup key
   OneCLDLangPrior onelangprior1;
   OneCLDLangPrior onelangprior2;
-} TLDLookup;
+} ;
 
 
 #define W2 (2 << 10)            // 3**2 = 10x more likely

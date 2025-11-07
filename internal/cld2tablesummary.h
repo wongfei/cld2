@@ -26,15 +26,15 @@ namespace CLD2 {
 
 // Hash bucket for four-way associative lookup, indirect probabilities
 // 16 bytes per bucket, 4-byte entries
-typedef struct {
+struct IndirectProbBucket4 {
   uint32 keyvalue[4];   // Upper part of word is hash, lower is indirect prob
-} IndirectProbBucket4;
+} ;
 
 
 // Expanded version December 2012.
 // Moves cutoff for 6-language vs. 3-language indirects
 // Has list of recognized lang-script combinations
-typedef struct {
+struct CLD2TableSummary {
   const IndirectProbBucket4* kCLDTable;
                                       // Each bucket has four entries, part
                                       //  key and part indirect subscript
@@ -46,7 +46,7 @@ typedef struct {
   const char* kRecognizedLangScripts; // Character string of lang-Scripts
                                       //  recognized: "en-Latn az-Arab ..."
                                       //  Single space delimiter, Random order
-} CLD2TableSummary;
+} ;
 
 }       // End namespace CLD2
 

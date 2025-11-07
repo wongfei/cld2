@@ -145,7 +145,7 @@ void setDebug(int debug);
 
 // Lower-level structure for individual tables. There are n table headers in
 // a given file header.
-typedef struct {
+struct TableHeader {
   CLD2::uint32 kCLDTableSizeOne;
   CLD2::uint32 kCLDTableSize;
   CLD2::uint32 kCLDTableKeyMask;
@@ -156,13 +156,13 @@ typedef struct {
   CLD2::uint32 lengthOf_kCLDTableInd;
   CLD2::uint32 startOf_kRecognizedLangScripts;
   CLD2::uint32 lengthOf_kRecognizedLangScripts;
-} TableHeader;
+} ;
 
 
 // Top-level structure for a CLD2 Data File Header.
 // Contains all the primitive fields for the header as well as an array of
 // headers for the individual tables.
-typedef struct {
+struct FileHeader {
   // Marker fields help recognize and verify the data file
   char sanityString[DATA_FILE_MARKER_LENGTH];
   CLD2::uint32 totalFileSizeBytes;
@@ -192,12 +192,12 @@ typedef struct {
   // Table bits
   CLD2::uint32 numTablesEncoded;
   TableHeader* tableHeaders;
-} FileHeader;
+} ;
 
 // The CLD2::TableHeader structure doesn't contain everything that is needed
 // to dump table data. Specifically, the size of the indirect table is not
 // part of the data structure. Any such data are captured in this struct.
-typedef struct {
+struct Supplement {
   const CLD2::uint32 lengthOf_kAvgDeltaOctaScore;
   // An array of 32-bit unsigned integers representing the indirect table sizes
   // for each of the table headers in the FileHeader structure. It is assumed
@@ -205,7 +205,7 @@ typedef struct {
   // in the tableHeaders field of the FileHeader, and that they are in the
   // same order as the entries in that structure.
   const CLD2::uint32* indirectTableSizes;
-} Supplement;
+} ;
 
 // Calculate the exact size of a header that encodes the specified number of
 // tables. This can be used to reserve space within the data file,

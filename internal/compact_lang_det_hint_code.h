@@ -32,10 +32,10 @@ namespace CLD2 {
 typedef int16 OneCLDLangPrior;
 
 const int kMaxOneCLDLangPrior = 14;
-typedef struct {
+struct CLDLangPriors {
   int32 n;
   OneCLDLangPrior prior[kMaxOneCLDLangPrior];
-} CLDLangPriors;
+} ;
 
 // Reading exposed here; setting hidden in .cc
 inline int GetCLDPriorWeight(OneCLDLangPrior olp) {

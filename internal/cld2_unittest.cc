@@ -42,10 +42,10 @@ const char* kTeststr_en =
   "of all are brought jurors or";
 
 
-typedef struct {
+struct TestPair {
   Language lang;
   const char* text;
-} TestPair;
+} ;
 
 
 static const TestPair kTestPair[] = {

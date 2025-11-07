@@ -39,10 +39,10 @@ const char* kTeststr_en =
 
 
 
-typedef struct {
+struct TestPair {
   Language lang;
   const char* text;
-} TestPair;
+} ;
 
 
 static const TestPair kTestPair[] = {

@@ -103,12 +103,12 @@ At the end of the first pass --
   //   Thread safe
   //
 
-  typedef struct {
+  struct PerScriptPair {
     int perscript_count;
     const Language* perscript_lang;
-  } PerScriptPair;
+  } ;
 
-  typedef struct {
+  struct LangDetObj {
     // Constants for hashing 4-7 byte quadgram to 32 bits
     const int kQuadHashB4Shift;
     const int kQuadHashB4bShift;
@@ -124,7 +124,7 @@ At the end of the first pass --
     const PerScriptPair* kPerScriptPair;
     const uint16* kQuadKeyTable;
     const uint32* kQuadValueTable;
-  } LangDetObj;
+  } ;
 
   // Returns the length in bytes of the prefix of src that is all
   //  interchange valid UTF-8

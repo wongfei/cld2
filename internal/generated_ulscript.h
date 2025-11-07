@@ -25,7 +25,7 @@ namespace CLD2 {
 
 typedef enum {RTypeNone = 0, RTypeOne, RTypeMany, RTypeCJK} ULScriptRType;
 
-typedef struct {const char* s; int i;} CharIntPair;
+struct CharIntPair {const char* s; int i;} ;
 
 typedef enum {
   ULScript_Common              = 0,  // Zyyy
